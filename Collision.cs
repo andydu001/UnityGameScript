@@ -1,8 +1,9 @@
- /*
-  * 
-  * This program control keyboard event input 
-  * 
-  */
+/*
+ * 
+ * This program control keyboard event input 
+ * 
+ */
+using UnityEditor.XR;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
@@ -10,6 +11,7 @@ public class Collision : MonoBehaviour
     private JumpByAndyD byAndyD;
     private GameObject game;
     private CharacterController character;
+    private ParticleSystem particle;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +19,19 @@ public class Collision : MonoBehaviour
          byAndyD = new JumpByAndyD();
          game = GameObject.Find("cube");
          character = game.GetComponent<CharacterController>();
+         particle = game.GetComponent<ParticleSystem>();
+
+        if(particle != null)
+        {
+            particle.Stop();
+           
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //in this section we make a call to MakeControl(character, game, vector3)
         if (game != null)
         {
@@ -93,5 +103,39 @@ public class Collision : MonoBehaviour
                 }
             }
         }
+
+       ParticalMove();
+      
+    }
+
+    /*
+     * play and stop the bullets
+     */
+
+    public void ParticalMove()
+    {
+       // particle.Pause();
+        if (particle != null)
+        {
+            
+
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                particle.Play();
+
+            }
+
+            else if (Input.GetKeyUp(KeyCode.Y))
+            {
+                particle.Stop();
+
+            }
+             
+           
+
+
+        }
+         
+        
     }
 }
