@@ -3,7 +3,7 @@
  <img width="415" alt="image" src="https://github.com/user-attachments/assets/34d40616-ecb8-471a-a595-e35e8b21dbe3">
 
 
-
+\n
 
  
  The Terminator shoots at the targets in this game until none is left.  
