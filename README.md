@@ -5,6 +5,7 @@
 
 
 
+
  
  The Terminator shoots at the targets in this game until none is left.  
 
